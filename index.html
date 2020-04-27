@@ -14,6 +14,13 @@
     <title>Harry Potter Trivia</title>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Include our own js file -->
+    <script src="script.js" defer></script>
+
+    <!-- Handlebars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
   </head>
 
   <body class="bg vertical-center">
@@ -45,11 +52,47 @@
   		</div>
   	</div>
 
-    <!-- <div id="quiz-container">
-      <h1>TOTO</h1>
-    </div> -->
+
+
   	
-  	
+  	<script id="quiz-html" type="text/x-handlebars-template">
+      <div class="row">
+        <div class="col col-md-1">
+          <!--Just for bootstrap margin-->
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="row mb-3">
+            <div class="col text-center">
+              <!-- <h2 class="question-label">What is the name of Aunt Marge's dog who likes to eat rotten meat on monday morning which sounds quite funny?</h2> -->
+              <h2 class="question-label">{{question}}</h2>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col text-center">
+              <div class="btn-group-vertical d-flex">
+                <button type="button" class="btn answer-button" id="answer-button-a">{{answers.a}}</button>
+                <button type="button" class="btn answer-button" id="answer-button-b">{{answers.b}}</button>
+                <button type="button" class="btn answer-button" id="answer-button-c">{{answers.c}}</button>
+                <button type="button" class="btn answer-button" id="answer-button-d">{{answers.d}}</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <button type="button" class="btn standard-button" id="next-button">NEXT</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!--Just for bootstrap margin-->
+        </div>
+      </div>
+    </script>
+
+
+
+    <div id="quiz-container"></div>
+
     
 
 
@@ -61,113 +104,7 @@
   </body>
 
   <script>
-      let mainButton = document.getElementById('main-button');
-      mainButton.onclick = function() {
-        //remove the home-container
-        let homeContainer = document.getElementById('home-container');
-        document.body.removeChild(homeContainer);
-
-        //create the quiz-container
-        let quizContainer = document.createElement('div');
-        quizContainer.id = 'quiz-container';
-        quizContainer.classList.add('container-fluid');
-        //quizContainer.classList.add('toto');
-        quizContainer.innerHTML = `
-          <div class="row">
-            <div class="col col-md-1">
-              <!--Just for bootstrap margin-->
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="row mb-3">
-                <div class="col text-center">
-                  <h2 class="question-label">What is the name of Aunt Marge's dog who likes to eat rotten meat on monday morning which sounds quite funny?</h2>
-                </div>
-              </div>
-              <div class="row mb-4">
-                <div class="col text-center">
-                  <div class="btn-group-vertical d-flex">
-                    <button type="button" class="btn answer-button" id="answer-button-a">jojon</button>
-                    <button type="button" class="btn answer-button" id="answer-button-b">jojon</button>
-                    <button type="button" class="btn answer-button" id="answer-button-c">jojon</button>
-                    <button type="button" class="btn answer-button" id="answer-button-d">jojon</button>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col text-center">
-                  <button type="button" class="btn standard-button" id="main-button">START</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <!--Just for bootstrap margin-->
-            </div>
-          </div>
-        `;
-        document.body.appendChild(quizContainer);
-      }
-
-      function buildQuiz() {
-        // variable to store the HTML output
-        const output = [];
-
-        //for each question
-        myQuestions.forEach((currentQuestion, questionNumber) => {
-          // variable to store the list of possible answers
-          const answers = [];
-
-          // and for each available answer...
-          for (answer in currentQuestion.answers) {
-            // ...add an HTML for each answer
-            answers.push(
-              `<div>
-                ${answer}
-              </div>`
-            );
-          }
-
-          //the whole html
-          output.push(
-            `<div class="question">${currentQuestion.question}</div>
-            <div class="answers">${answers.join('')}</div>`
-          );
-        });
-
-        // finally combine our output list into one string of HTML and put it on the page
-        //quizContainer.innerHTML = output.join('');
-      }
-
-      //const quizContainer = document.getElementById('quiz');
-      const resultsContainer = document.getElementById('results');
-      const submitButton = document.getElementById('submit');
-      const myQuestions = [
-        {
-          question: "who is pangcin?",
-          answers: {
-            a: "a guy",
-            b: "a boy",
-            c: "a prince",
-            d: "a king"
-          },
-          correctAnswer: "c"
-        },
-        {
-          question: "who is tom?",
-          answers: {
-            a: "a cat",
-            b: "a mouse",
-            c: "a sheep",
-            d: "a lion"
-          },
-          correctAnswer: "a"
-        }
-      ];
-
-    // kick things off
-    buildQuiz();
-
-    // Event listeners
-    submitButton.addEventListener('click', showResults);
+      
     </script>
 
 </html>
