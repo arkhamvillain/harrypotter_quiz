@@ -1,0 +1,83 @@
+html, body {
+	height: 100%;
+	font-family: 'Indie Flower', cursive;
+}
+
+.bg {
+	/* The image used */
+	background-image: url("./images/main_background.jpg");
+
+	/* Full height */
+	height: 100%;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.vertical-center {
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+	min-height: 100vh; /* These two lines are counted as one :-)       */
+
+	display: flex;
+	align-items: center;
+}
+
+.logoimg {
+	max-width: 100%;
+}
+
+.mainlabel {
+	color: white;
+	font-size: 2em;
+}
+
+.standard-button {
+	background-color: #D2AA6B;
+	color: black;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	padding: 0.6em 4.5em;
+	border: none;
+	border-radius: 20px;
+}
+
+.question-label {
+	color: white;
+	font-size: 2em;
+}
+
+.answer-button {
+	max-width: 80%;
+	height: 2.5em;
+	border: #D2AA6B solid 1px;
+	margin: 0.4em auto;
+	font-size: 1.5em;	
+	color: white;
+}
+
+.answer-button:hover {
+	background-color: #D2AA6B;
+}
+
+#answer-button-a {
+	border-radius: 10px;
+}
+
+#answer-button-b {
+	border-radius: 10px;
+}
+
+#answer-button-c {
+	border-radius: 10px;
+}
+
+#answer-button-d {
+	border-radius: 10px;
+}
+
+/* Debugging tool */
+.toto {
+	border: red solid;
+}
