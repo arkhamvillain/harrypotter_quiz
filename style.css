@@ -1,6 +1,6 @@
 html, body {
-	height: 100%;
 	font-family: 'Indie Flower', cursive;
+	overflow: scroll;
 }
 
 .bg {
@@ -43,6 +43,30 @@ html, body {
 	border-radius: 20px;
 }
 
+.progress-set {
+	width: 30%;
+	float: left;
+}
+
+.progress-label {
+	float: left;
+	color: white;
+	font-family: 'Rubik', sans-serif;
+	font-size: 0.8em;
+}
+
+.progress {
+	height: 3px;
+	width: 100%;
+	background-color: white;
+	-webkit-box-shadow: none;
+  	box-shadow: none;
+}
+
+.progress-bar {
+	background-color: #D2AA6B;
+}
+
 .question-label {
 	color: white;
 	font-size: 2em;
@@ -50,15 +74,22 @@ html, body {
 
 .answer-button {
 	max-width: 80%;
-	height: 2.5em;
+	min-height: 2.5em;
 	border: #D2AA6B solid 1px;
 	margin: 0.4em auto;
 	font-size: 1.5em;	
 	color: white;
+	overflow-wrap: break-word;
 }
 
 .answer-button:hover {
 	background-color: #D2AA6B;
+}
+
+.score-value {
+	color: #b51419;
+	font-size: 7em;
+	font-family: 'Rubik', sans-serif;
 }
 
 #answer-button-a {
@@ -77,7 +108,8 @@ html, body {
 	border-radius: 10px;
 }
 
-/* Debugging tool */
-.toto {
-	border: red solid;
+.score-label {
+	color: white;
+	font-size: 5em;
 }
+

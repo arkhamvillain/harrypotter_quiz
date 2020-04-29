@@ -3,15 +3,25 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="description" content="Are you a true Harry Potter fan? Test your knowledge with this online quiz!">
+    <meta name="keywords" content="Harry Potter, quiz, trivia, indie, game, wizard">
+    <meta name="author" content="Yoseph Winata">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Harry Potter Trivia</title>
+
+    <!--favicon cdn-->
+    <link rel="icon" href="https://img.icons8.com/office/16/000000/harry-potter-.png"/>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!--Google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 
-    <title>Harry Potter Trivia</title>
+    <!--CSS-->
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -21,8 +31,78 @@
     <!-- Handlebars -->
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
+    <script id="quiz-html" type="text/x-handlebars-template">
+      <div class="row">
+        <div class="col col-md-1">
+          <!--Just for bootstrap margin-->
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="row mt-2">
+            <div class="col text-center mb-4">
+              <div class="progress-set">
+                <p class="progress-label mb-1" id="question-tracker"></p>
+                <div id="question-progress" class="progress">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col text-center">
+              <h2 class="question-label">{{question}}</h2>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col text-center">
+              <div class="btn-group-vertical d-flex">
+                <button type="button" class="btn answer-button" id="answer-button-a">{{answers.a}}</button>
+                <button type="button" class="btn answer-button" id="answer-button-b">{{answers.b}}</button>
+                <button type="button" class="btn answer-button" id="answer-button-c">{{answers.c}}</button>
+                <button type="button" class="btn answer-button" id="answer-button-d">{{answers.d}}</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <button type="button" class="btn standard-button mb-3" id="next-button">NEXT</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!--Just for bootstrap margin-->
+        </div>
+      </div>
+    </script>
+
+    <script id="result-html" type="text/html">
+      <div class="row">
+        <div class="col col-md-1">
+          <!--Just for bootstrap margin-->
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="row mb-3">
+            <div class="col text-center">
+              <p class="score-label">Your Score</p>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="col text-center">
+              <p class="score-value" id="score-value-id">7/10</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <button type="button" class="btn standard-button" id="continue-button">CONTINUE</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!--Just for bootstrap margin-->
+        </div>
+      </div>
+    </script>
   </head>
 
+  <!--body starts-->
   <body class="bg vertical-center">
   	<div class="container-fluid" id="home-container">
   		<div class="row">
@@ -42,7 +122,7 @@
 				</div>
 				<div class="row">
 					<div class="col text-center">
-						<button type="button" class="btn standard-button" id="main-button">START</button>
+						<button type="button" class="btn standard-button mb-5" id="main-button">START</button>
 					</div>
 				</div>
   			</div>
@@ -52,48 +132,9 @@
   		</div>
   	</div>
 
-
-
-  	
-  	<script id="quiz-html" type="text/x-handlebars-template">
-      <div class="row">
-        <div class="col col-md-1">
-          <!--Just for bootstrap margin-->
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="row mb-3">
-            <div class="col text-center">
-              <!-- <h2 class="question-label">What is the name of Aunt Marge's dog who likes to eat rotten meat on monday morning which sounds quite funny?</h2> -->
-              <h2 class="question-label">{{question}}</h2>
-            </div>
-          </div>
-          <div class="row mb-4">
-            <div class="col text-center">
-              <div class="btn-group-vertical d-flex">
-                <button type="button" class="btn answer-button" id="answer-button-a">{{answers.a}}</button>
-                <button type="button" class="btn answer-button" id="answer-button-b">{{answers.b}}</button>
-                <button type="button" class="btn answer-button" id="answer-button-c">{{answers.c}}</button>
-                <button type="button" class="btn answer-button" id="answer-button-d">{{answers.d}}</button>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col text-center">
-              <button type="button" class="btn standard-button" id="next-button">NEXT</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <!--Just for bootstrap margin-->
-        </div>
-      </div>
-    </script>
-
-
-
+    <!--preparing quiz & result container-->
     <div id="quiz-container"></div>
-
-    
+    <div id="result-container"></div>
 
 
     <!-- Optional JavaScript -->
@@ -102,9 +143,4 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
-
-  <script>
-      
-    </script>
-
 </html>
