@@ -537,7 +537,6 @@ class QuizSession {
   }
 }
 
-
 /*
   Section 1: Dealing with the home page
 */

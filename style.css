@@ -14,6 +14,8 @@ html, body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+
+	background-color: black;
 }
 
 .vertical-center {
@@ -82,8 +84,15 @@ html, body {
 	overflow-wrap: break-word;
 }
 
-.answer-button:hover {
-	background-color: #D2AA6B;
+.btn:hover {
+	color: white;		
+}
+
+@media (hover: hover) {
+    .answer-button:hover {
+		background-color: #D2AA6B;
+		color: black;
+	}
 }
 
 .score-value {
