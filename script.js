@@ -37,7 +37,7 @@ const questions = [
       c: "Remus Lupin",
       d: "Sirius Black"
     },
-    correctAnswer: "d"
+    correctAnswer: "a"
   },
   {
   question: "How many times was Nearly Headless Nick axed in the neck?",
